@@ -1,5 +1,0 @@
-[
-  { "id": 1, "nome": "Aluguel", "valor": 1200, "data": "2024-06-01", "tipo": "Fixos" },
-  { "id": 2, "nome": "Supermercado", "valor": 600, "data": "2024-06-05", "tipo": "Variáveis" },
-  { "id": 3, "nome": "Internet", "valor": 100, "data": "2024-06-15", "tipo": "Fixos" }
-]
