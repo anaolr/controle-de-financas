@@ -25,8 +25,8 @@
             
             <div class="form-container">
                 <form id="form-gasto">
-                    <input type="text" id="nome" placeholder="Nome" required>
-                    <input type="number" id="valor" placeholder="Valor" step="0.01" required>
+                    <input type="text" id="nome" placeholder="Nome (ex: Luz)" required>
+                    <input type="number" id="valor" placeholder="Valor (ex: 150.50)" step="0.01" required>
                     <input type="date" id="data" required>
                     <select id="tipo" required>
                         <option value="Fixos">Fixo</option>
@@ -39,7 +39,45 @@
             <div class="resumo">
                 <h2>Total Geral do Mês: <span id="total-geral">R$ 0,00</span></h2>
             </div>
-            </div>
+
+            <h2>Gastos Fixos</h2>
+            <table id="table-fixos" class="excel-table">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Valor</th>
+                        <th>Data</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="1" class="td-direita"><strong>Total Fixos:</strong></td>
+                        <td colspan="3" id="total-fixos" class="valor-destaque">R$ 0,00</td>
+                    </tr>
+                </tfoot>
+            </table>
+
+            <h2>Gastos Variáveis</h2>
+            <table id="table-variaveis" class="excel-table">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Valor</th>
+                        <th>Data</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="1" class="td-direita"><strong>Total Variáveis:</strong></td>
+                        <td colspan="3" id="total-variaveis" class="valor-destaque">R$ 0,00</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
