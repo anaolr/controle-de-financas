@@ -1,136 +1,215 @@
+/* Paleta de Cores e Variáveis Globais */
+:root {
+    --primary: #4f46e5;       /* Azul Moderno (Indigo) */
+    --primary-hover: #4338ca;
+    --secondary: #10b981;     /* Verde Esmeralda */
+    --danger: #ef4444;        /* Vermelho Alerta */
+    --danger-hover: #dc2626;
+    --warning: #f59e0b;       /* Amarelo/Laranja */
+    --warning-hover: #d97706;
+    --bg-color: #f3f4f6;      /* Fundo Cinza super claro */
+    --surface: #ffffff;       /* Fundo dos Cards (Branco) */
+    --text-main: #111827;     /* Texto Escuro (Quase preto) */
+    --text-muted: #6b7280;    /* Texto Secundário (Cinza) */
+    --border: #e5e7eb;        /* Cor das linhas */
+    --radius: 12px;           /* Arredondamento padrão */
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f3f2f1;
-    color: #323130;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.5;
 }
 
 .container {
-    max-width: 900px;
-    margin: 40px auto;
+    max-width: 1000px;
+    margin: 0 auto;
     padding: 20px;
-    background-color: white;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-h1 {
-    color: #107c41; /* Verde característico do Excel */
-    margin-bottom: 30px;
-    border-bottom: 2px solid #107c41;
-    padding-bottom: 10px;
+/* ================= COMPONENTES (Cards, Headers) ================= */
+.card {
+    background: var(--surface);
+    padding: 24px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 24px;
 }
 
-h2 {
-    margin-top: 30px;
-    margin-bottom: 15px;
-    font-size: 1.2rem;
-    color: #323130;
-}
-
-/* Estilo de Planilha para a Tabela */
-.excel-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.95rem;
-}
-
-.excel-table th, .excel-table td {
-    border: 1px solid #d2d2d2;
-    padding: 8px 12px;
-    text-align: left;
-}
-
-.excel-table th {
-    background-color: #f3f2f1;
+.card-title, .section-title {
+    font-size: 1.25rem;
     font-weight: 600;
-    color: #323130;
-    border-bottom: 2px solid #c8c6c4;
+    margin-bottom: 16px;
+    color: var(--text-main);
 }
 
-.excel-table tr:hover {
-    background-color: #f3f2f1;
-}
+.section-title { margin-top: 32px; }
 
-.excel-table td:nth-child(2) {
-    text-align: right; /* Alinha os valores em dinheiro à direita */
-    font-family: 'Courier New', Courier, monospace; /* Fonte monoespaçada para números */
-    font-weight: bold;
-}
-/* Estilos para o Formulário e Resumo */
-.form-container {
-    background-color: #f3f2f1;
-    padding: 15px;
-    border: 1px solid #d2d2d2;
-    margin-bottom: 20px;
-    border-radius: 4px;
-}
-
-#form-gasto {
+.app-header {
     display: flex;
-    gap: 10px;
-    margin-top: 10px;
-    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding-top: 10px;
 }
 
-#form-gasto input, #form-gasto select {
-    padding: 8px;
-    border: 1px solid #c8c6c4;
-    border-radius: 4px;
+/* Dashboard Card (Gradiente Moderno) */
+.resumo-card {
+    background: linear-gradient(135deg, var(--primary), #3b82f6);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px;
+    border-radius: var(--radius);
+    box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.3);
+    margin-bottom: 30px;
+}
+
+.resumo-card h2 { font-size: 1.2rem; font-weight: 500; }
+.resumo-card p { opacity: 0.8; font-size: 0.9rem; }
+.valor-total { font-size: 2.5rem; font-weight: 700; letter-spacing: -1px; }
+
+/* ================= FORMULÁRIOS ================= */
+form, .form-container {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.form-container { flex-direction: column; } /* Para o Login */
+
+input, select {
     flex: 1;
     min-width: 150px;
+    padding: 12px 16px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 1rem;
+    color: var(--text-main);
+    background-color: #f9fafb;
+    outline: none;
+    transition: all 0.2s ease;
 }
 
-#form-gasto button {
-    padding: 8px 16px;
-    background-color: #107c41;
-    color: white;
+input:focus, select:focus {
+    border-color: var(--primary);
+    background-color: var(--surface);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+}
+
+/* ================= BOTÕES ================= */
+button {
+    padding: 12px 20px;
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
     cursor: pointer;
-    font-weight: bold;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
-#form-gasto button:hover {
-    background-color: #0b5a2f;
+button:active { transform: scale(0.97); }
+
+.btn-primary { background-color: var(--primary); color: white; }
+.btn-primary:hover { background-color: var(--primary-hover); box-shadow: 0 4px 6px rgba(79, 70, 229, 0.25); }
+
+.btn-secondary { background-color: #e5e7eb; color: var(--text-main); }
+.btn-secondary:hover { background-color: #d1d5db; }
+
+.btn-outline { background-color: transparent; border: 1px solid var(--border); color: var(--text-muted); padding: 8px 16px;}
+.btn-outline:hover { background-color: var(--bg-color); color: var(--danger); border-color: var(--danger); }
+
+/* ================= TABELAS RESPONSIVAS ================= */
+.table-responsive {
+    overflow-x: auto; /* A Mágica do Mobile: Permite rolar a tabela pro lado */
+    background: var(--surface);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 24px;
 }
 
-.resumo {
-    background-color: #e5f2e9;
-    padding: 15px;
-    border-left: 5px solid #107c41;
-    margin-bottom: 30px;
+.modern-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    white-space: nowrap; /* Impede que o texto esprema */
 }
 
-/* Estilos para Tabela e Botões de Ação */
-.td-direita {
-    text-align: right !important;
+.modern-table th, .modern-table td {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
 }
 
-.valor-destaque {
-    font-weight: bold;
-    color: #107c41;
+.modern-table th {
+    background-color: #f9fafb;
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
+.modern-table tbody tr:hover { background-color: #f9fafb; }
+.modern-table tbody tr:last-child td { border-bottom: none; } /* Remove borda da última linha */
+
+.text-right { text-align: right; }
+.text-money { font-family: monospace; font-size: 1.1rem; font-weight: 600; }
+.text-fixed { color: var(--primary); }
+.text-variable { color: var(--warning); }
+
+/* Estilizando os botões gerados pelo JS (Editar e Excluir) */
 .btn-editar, .btn-excluir {
-    padding: 5px 8px;
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    border-radius: 6px;
     margin-right: 5px;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    font-size: 0.8rem;
+}
+.btn-editar { background-color: var(--warning); color: white; }
+.btn-editar:hover { background-color: var(--warning-hover); }
+.btn-excluir { background-color: var(--danger); color: white; }
+.btn-excluir:hover { background-color: var(--danger-hover); }
+
+
+/* ================= TELA DE LOGIN ================= */
+#tela-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
 }
 
-.btn-editar {
-    background-color: #ffb900;
-    color: #000;
+.login-card {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
 }
 
-.btn-excluir {
-    background-color: #d13438;
-    color: white;
+.login-card h1 { color: var(--primary); margin-bottom: 5px; }
+.login-card .subtitle { color: var(--text-muted); margin-bottom: 24px; }
+
+
+/* ================= MEDIA QUERIES (Celulares) ================= */
+@media (max-width: 640px) {
+    /* No celular, o cabeçalho e os cards se alinham em coluna */
+    .app-header { flex-direction: column; gap: 15px; }
+    
+    .resumo-card { flex-direction: column; text-align: center; gap: 15px; padding: 20px; }
+    
+    form { flex-direction: column; }
+    input, select, button[type="submit"] { width: 100%; }
+    
+    .modern-table th, .modern-table td { padding: 12px; }
 }
