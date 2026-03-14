@@ -183,12 +183,18 @@ button:active { transform: scale(0.97); }
 .btn-excluir:hover { background-color: var(--danger-hover); }
 
 
-/* ================= TELA DE LOGIN ================= */
+/* ================= TELA DE LOGIN 100% CENTRALIZADA ================= */
 #tela-login {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--bg-color);
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 80vh;
+    z-index: 1000;
 }
 
 .login-card {
@@ -199,6 +205,49 @@ button:active { transform: scale(0.97); }
 
 .login-card h1 { color: var(--primary); margin-bottom: 5px; }
 .login-card .subtitle { color: var(--text-muted); margin-bottom: 24px; }
+
+/* ================= BOTÃO DE TEMA FLUTUANTE ================= */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text-main);
+    font-size: 1.5rem;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 2000;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+}
+.theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+/* ================= TEMA NOTURNO (DARK MODE) ================= */
+body.dark-mode {
+    --bg-color: #111827;      /* Fundo muito escuro */
+    --surface: #1f2937;       /* Fundo dos cards (cinza escuro) */
+    --text-main: #f9fafb;     /* Texto branco */
+    --text-muted: #9ca3af;    /* Texto cinza claro */
+    --border: #374151;        /* Bordas mais escuras */
+}
+
+body.dark-mode input, body.dark-mode select {
+    background-color: #374151;
+    color: var(--text-main);
+    border-color: #4b5563;
+}
+
+body.dark-mode .modern-table th { background-color: #1f2937; }
+body.dark-mode .modern-table tbody tr:hover { background-color: #374151; }
 
 
 /* ================= MEDIA QUERIES (Celulares) ================= */

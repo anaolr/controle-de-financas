@@ -52,10 +52,9 @@ function fazerLogout() {
 }
 
 function mudarTela(logado) {
-  document.getElementById("tela-login").style.display = logado
-    ? "none"
-    : "block";
-  document.getElementById("tela-app").style.display = logado ? "block" : "none";
+    // Trocamos "block" por "flex" para respeitar a centralização do CSS!
+    document.getElementById("tela-login").style.display = logado ? "none" : "flex";
+    document.getElementById("tela-app").style.display = logado ? "block" : "none";
 }
 
 // Verifica se a pessoa já estava logada antes
@@ -183,5 +182,32 @@ async function editarGasto(id) {
   carregarDados();
 }
 
-// Inicia checando se tem login ativo
-window.onload = checarSessao;
+// ==== TEMA NOTURNO ====
+function toggleTema() {
+    // Liga ou desliga a classe 'dark-mode' no corpo da página
+    document.body.classList.toggle("dark-mode");
+    
+    // Verifica se ficou escuro ou claro
+    const isDark = document.body.classList.contains("dark-mode");
+    
+    // Salva a preferência no navegador da pessoa
+    localStorage.setItem("tema", isDark ? "dark" : "light");
+    
+    // Muda o ícone do botão
+    document.getElementById("btn-theme").textContent = isDark ? "☀️" : "🌙";
+}
+
+function carregarTema() {
+    // Quando a página abre, puxa o que estava salvo
+    const temaSalvo = localStorage.getItem("tema");
+    if (temaSalvo === "dark") {
+        document.body.classList.add("dark-mode");
+        document.getElementById("btn-theme").textContent = "☀️";
+    }
+}
+
+// Inicia checando o tema e o login ativo
+window.onload = function() {
+    carregarTema();
+    checarSessao();
+};

@@ -9,90 +9,90 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <div id="tela-login">
-            <div class="card login-card">
-                <h1>💰 Meu Gerenciador</h1>
-                <p class="subtitle">Faça login para acessar suas finanças</p>
-                <div class="form-container">
-                    <input type="email" id="email-auth" placeholder="Seu E-mail" required>
-                    <input type="password" id="senha-auth" placeholder="Sua Senha" required>
-                    <button class="btn-primary" onclick="fazerLogin()">Entrar</button>
-                    <button class="btn-secondary" onclick="fazerCadastro()">Criar Conta Nova</button>
-                </div>
+    <button onclick="toggleTema()" class="theme-toggle" id="btn-theme">🌙</button>
+
+    <div id="tela-login">
+        <div class="card login-card">
+            <h1>💰 Meu Gerenciador</h1>
+            <p class="subtitle">Faça login para acessar suas finanças</p>
+            <div class="form-container">
+                <input type="email" id="email-auth" placeholder="Seu E-mail" required>
+                <input type="password" id="senha-auth" placeholder="Sua Senha" required>
+                <button class="btn-primary" onclick="fazerLogin()">Entrar</button>
+                <button class="btn-secondary" onclick="fazerCadastro()">Criar Conta Nova</button>
             </div>
         </div>
+    </div>
 
-        <div id="tela-app" style="display: none;">
-            
-            <header class="app-header">
-                <h1>Visão Geral</h1>
-                <button onclick="fazerLogout()" class="btn-outline">Sair da Conta</button>
-            </header>
-            
-            <div class="resumo-card">
-                <div>
-                    <h2>Balanço do Mês</h2>
-                    <p>Total de gastos acumulados</p>
-                </div>
-                <span id="total-geral" class="valor-total">R$ 0,00</span>
+    <div class="container" id="tela-app" style="display: none;">
+        
+        <header class="app-header">
+            <h1>Visão Geral</h1>
+            <button onclick="fazerLogout()" class="btn-outline">Sair da Conta</button>
+        </header>
+        
+        <div class="resumo-card">
+            <div>
+                <h2>Balanço do Mês</h2>
+                <p>Total de gastos acumulados</p>
             </div>
+            <span id="total-geral" class="valor-total">R$ 0,00</span>
+        </div>
 
-            <div class="card">
-                <h3 class="card-title">Novo Gasto</h3>
-                <form id="form-gasto">
-                    <input type="text" id="nome" placeholder="Descrição (ex: Conta de Luz)" required>
-                    <input type="number" id="valor" placeholder="Valor (R$)" step="0.01" required>
-                    <input type="date" id="data" required>
-                    <select id="tipo" required>
-                        <option value="Fixos">Despesa Fixa</option>
-                        <option value="Variáveis">Despesa Variável</option>
-                    </select>
-                    <button type="submit" class="btn-primary">Adicionar</button>
-                </form>
-            </div>
+        <div class="card">
+            <h3 class="card-title">Novo Gasto</h3>
+            <form id="form-gasto">
+                <input type="text" id="nome" placeholder="Descrição (ex: Conta de Luz)" required>
+                <input type="number" id="valor" placeholder="Valor (R$)" step="0.01" required>
+                <input type="date" id="data" required>
+                <select id="tipo" required>
+                    <option value="Fixos">Despesa Fixa</option>
+                    <option value="Variáveis">Despesa Variável</option>
+                </select>
+                <button type="submit" class="btn-primary">Adicionar</button>
+            </form>
+        </div>
 
-            <h2 class="section-title">Despesas Fixas</h2>
-            <div class="table-responsive">
-                <table id="table-fixos" class="modern-table">
-                    <thead>
-                        <tr>
-                            <th>Descrição</th>
-                            <th>Valor</th>
-                            <th>Data</th>
-                            <th>Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                    <tfoot>
-                        <tr>
-                            <td colspan="3" class="text-right"><strong>Subtotal Fixos:</strong></td>
-                            <td id="total-fixos" class="text-money text-fixed">R$ 0,00</td>
-                        </tr>
-                    </tfoot>
-                </table>
-            </div>
+        <h2 class="section-title">Despesas Fixas</h2>
+        <div class="table-responsive">
+            <table id="table-fixos" class="modern-table">
+                <thead>
+                    <tr>
+                        <th>Descrição</th>
+                        <th>Valor</th>
+                        <th>Data</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3" class="text-right"><strong>Subtotal Fixos:</strong></td>
+                        <td id="total-fixos" class="text-money text-fixed">R$ 0,00</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
 
-            <h2 class="section-title">Despesas Variáveis</h2>
-            <div class="table-responsive">
-                <table id="table-variaveis" class="modern-table">
-                    <thead>
-                        <tr>
-                            <th>Descrição</th>
-                            <th>Valor</th>
-                            <th>Data</th>
-                            <th>Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                    <tfoot>
-                        <tr>
-                            <td colspan="3" class="text-right"><strong>Subtotal Variáveis:</strong></td>
-                            <td id="total-variaveis" class="text-money text-variable">R$ 0,00</td>
-                        </tr>
-                    </tfoot>
-                </table>
-            </div>
+        <h2 class="section-title">Despesas Variáveis</h2>
+        <div class="table-responsive">
+            <table id="table-variaveis" class="modern-table">
+                <thead>
+                    <tr>
+                        <th>Descrição</th>
+                        <th>Valor</th>
+                        <th>Data</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3" class="text-right"><strong>Subtotal Variáveis:</strong></td>
+                        <td id="total-variaveis" class="text-money text-variable">R$ 0,00</td>
+                    </tr>
+                </tfoot>
+            </table>
         </div>
     </div>
 
