@@ -3,6 +3,7 @@
     --primary: #4f46e5;       /* Azul Moderno (Indigo) */
     --primary-hover: #4338ca;
     --secondary: #10b981;     /* Verde Esmeralda */
+    --secondary-hover: #059669;
     --danger: #ef4444;        /* Vermelho Alerta */
     --danger-hover: #dc2626;
     --warning: #f59e0b;       /* Amarelo/Laranja */
@@ -126,8 +127,8 @@ button:active { transform: scale(0.97); }
 .btn-primary { background-color: var(--primary); color: white; }
 .btn-primary:hover { background-color: var(--primary-hover); box-shadow: 0 4px 6px rgba(79, 70, 229, 0.25); }
 
-.btn-secondary { background-color: #e5e7eb; color: var(--text-main); }
-.btn-secondary:hover { background-color: #d1d5db; }
+.btn-secondary { background-color: var(--secondary); color: white;}
+.btn-secondary:hover { background-color: var(--secondary-hover);  box-shadow: 0 4px 6px rgba(79, 70, 229, 0.25); }
 
 .btn-outline { background-color: transparent; border: 1px solid var(--border); color: var(--text-muted); padding: 8px 16px;}
 .btn-outline:hover { background-color: var(--bg-color); color: var(--danger); border-color: var(--danger); }
