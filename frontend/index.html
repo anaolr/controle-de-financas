@@ -7,65 +7,40 @@
 </head>
 <body>
     <div class="container">
-        <h1>Gerenciador Financeiro</h1>
-        
-        <div class="form-container">
-            <h3>Adicionar Novo Gasto</h3>
-            <form id="form-gasto">
-                <input type="text" id="nome" placeholder="Nome (ex: Luz)" required>
-                <input type="number" id="valor" placeholder="Valor (ex: 150.50)" step="0.01" required>
-                <input type="date" id="data" required>
-                <select id="tipo" required>
-                    <option value="Fixos">Fixo</option>
-                    <option value="Variáveis">Variável</option>
-                </select>
-                <button type="submit">Adicionar</button>
-            </form>
+        <div id="tela-login">
+            <h1 style="text-align: center;">Bem-vindo ao Gerenciador</h1>
+            <div class="form-container" style="max-width: 400px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px;">
+                <input type="email" id="email-auth" placeholder="Seu E-mail" required>
+                <input type="password" id="senha-auth" placeholder="Sua Senha" required>
+                <button onclick="fazerLogin()">Entrar</button>
+                <button onclick="fazerCadastro()" style="background-color: #0078d4;">Criar Conta</button>
+            </div>
         </div>
 
-        <div class="resumo">
-            <h2>Total Geral do Mês: <span id="total-geral">R$ 0,00</span></h2>
-        </div>
+        <div id="tela-app" style="display: none;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h1>Gerenciador Financeiro</h1>
+                <button onclick="fazerLogout()" class="btn-excluir">Sair</button>
+            </div>
+            
+            <div class="form-container">
+                <form id="form-gasto">
+                    <input type="text" id="nome" placeholder="Nome" required>
+                    <input type="number" id="valor" placeholder="Valor" step="0.01" required>
+                    <input type="date" id="data" required>
+                    <select id="tipo" required>
+                        <option value="Fixos">Fixo</option>
+                        <option value="Variáveis">Variável</option>
+                    </select>
+                    <button type="submit">Adicionar</button>
+                </form>
+            </div>
 
-        <h2>Gastos Fixos</h2>
-        <table id="table-fixos" class="excel-table">
-            <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>Valor</th>
-                    <th>Data</th>
-                    <th>Ações</th>
-                </tr>
-            </thead>
-            <tbody></tbody>
-            <tfoot>
-                <tr>
-                    <td colspan="1" class="td-direita"><strong>Total Fixos:</strong></td>
-                    <td colspan="3" id="total-fixos" class="valor-destaque">R$ 0,00</td>
-                </tr>
-            </tfoot>
-        </table>
-
-        <h2>Gastos Variáveis</h2>
-        <table id="table-variaveis" class="excel-table">
-            <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>Valor</th>
-                    <th>Data</th>
-                    <th>Ações</th>
-                </tr>
-            </thead>
-            <tbody></tbody>
-            <tfoot>
-                <tr>
-                    <td colspan="1" class="td-direita"><strong>Total Variáveis:</strong></td>
-                    <td colspan="3" id="total-variaveis" class="valor-destaque">R$ 0,00</td>
-                </tr>
-            </tfoot>
-        </table>
+            <div class="resumo">
+                <h2>Total Geral do Mês: <span id="total-geral">R$ 0,00</span></h2>
+            </div>
+            </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
