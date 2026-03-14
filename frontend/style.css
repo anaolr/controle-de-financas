@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f3f2f1;
+    color: #323130;
+}
+
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+h1 {
+    color: #107c41; /* Verde característico do Excel */
+    margin-bottom: 30px;
+    border-bottom: 2px solid #107c41;
+    padding-bottom: 10px;
+}
+
+h2 {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    color: #323130;
+}
+
+/* Estilo de Planilha para a Tabela */
+.excel-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+.excel-table th, .excel-table td {
+    border: 1px solid #d2d2d2;
+    padding: 8px 12px;
+    text-align: left;
+}
+
+.excel-table th {
+    background-color: #f3f2f1;
+    font-weight: 600;
+    color: #323130;
+    border-bottom: 2px solid #c8c6c4;
+}
+
+.excel-table tr:hover {
+    background-color: #f3f2f1;
+}
+
+.excel-table td:nth-child(2) {
+    text-align: right; /* Alinha os valores em dinheiro à direita */
+    font-family: 'Courier New', Courier, monospace; /* Fonte monoespaçada para números */
+    font-weight: bold;
+}
+/* Estilos para o Formulário e Resumo */
+.form-container {
+    background-color: #f3f2f1;
+    padding: 15px;
+    border: 1px solid #d2d2d2;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+#form-gasto {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+#form-gasto input, #form-gasto select {
+    padding: 8px;
+    border: 1px solid #c8c6c4;
+    border-radius: 4px;
+    flex: 1;
+    min-width: 150px;
+}
+
+#form-gasto button {
+    padding: 8px 16px;
+    background-color: #107c41;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#form-gasto button:hover {
+    background-color: #0b5a2f;
+}
+
+.resumo {
+    background-color: #e5f2e9;
+    padding: 15px;
+    border-left: 5px solid #107c41;
+    margin-bottom: 30px;
+}
+
+/* Estilos para Tabela e Botões de Ação */
+.td-direita {
+    text-align: right !important;
+}
+
+.valor-destaque {
+    font-weight: bold;
+    color: #107c41;
+}
+
+.btn-editar, .btn-excluir {
+    padding: 5px 8px;
+    margin-right: 5px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.btn-editar {
+    background-color: #ffb900;
+    color: #000;
+}
+
+.btn-excluir {
+    background-color: #d13438;
+    color: white;
+}
